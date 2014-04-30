@@ -1,5 +1,9 @@
-INSERT INTO `Conference` (`id`, `creation_time`, `modification_time`, `endDate`, `name`, `startDate`) VALUES (1, '2014-04-26 00:00:00', '2014-04-26 00:00:00', '2014-04-26 00:00:00', 'TakeOff Talks', '2014-04-26 00:00:00'),(2, '2014-04-26 00:00:00', '2014-04-26 00:00:00', '2014-04-26 00:00:00', 'TakeOff Conf', '2014-04-26 00:00:00');
+INSERT INTO `Conference` (`id`, `creation_time`, `modification_time`, `name`, `startDate`, `endDate`) VALUES (1, '2014-04-26 00:00:00', '2014-04-26 00:00:00', 'Devoxx 2014', '2014-11-10 00:00:00', '2014-11-14 00:00:00');
+INSERT INTO `Conference` (`id`, `creation_time`, `modification_time`, `name`, `startDate`, `endDate`) VALUES (2, '2014-04-26 00:00:00', '2014-04-26 00:00:00', 'Devoxx UK 2014', '2014-06-12 00:00:00', '2014-06-13 00:00:00');
+INSERT INTO `Conference` (`id`, `creation_time`, `modification_time`, `name`, `startDate`, `endDate`) VALUES (3, '2014-04-26 00:00:00', '2014-04-26 00:00:00', 'Devoxx FR 2014', '2014-04-16 00:00:00', '2014-04-18 00:00:00');
 
-
-
-INSERT INTO `Talk` (`id`, `creation_time`, `modification_time`, `speakerName`, `title`, `conference_id`) VALUES (5, '2014-04-26 00:00:00', '2014-04-26 00:00:00', 'awillemant', 'Hypermedia FTW', 1),(6, '2014-04-26 00:00:00', '2014-04-26 00:00:00', 'XVW', 'Le fantasme du jeu sans fin', 1),(7, '2014-04-26 00:00:00', '2014-04-26 00:00:00', 'awillemant', 'Test', 1);
+INSERT INTO `Talk` (`id`, `creation_time`, `modification_time`, `speakerName`, `title`, `conference_id`) VALUES (1, '2014-04-26 00:00:00', '2014-04-26 00:00:00', 'Paul Sandoz', 'Perchance to Stream with Java 8', 2);
+INSERT INTO `Talk` (`id`, `creation_time`, `modification_time`, `speakerName`, `title`, `conference_id`) VALUES (2, '2014-04-26 00:00:00', '2014-04-26 00:00:00', 'David Pilato', 'Advanced Search for Your Legacy Application', 2);
+INSERT INTO `Talk` (`id`, `creation_time`, `modification_time`, `speakerName`, `title`, `conference_id`) VALUES (3, '2014-04-26 00:00:00', '2014-04-26 00:00:00', 'Josh Long', 'Have You Seen Spring Lately?',2);
+INSERT INTO `Talk` (`id`, `creation_time`, `modification_time`, `speakerName`, `title`, `conference_id`) VALUES (4, '2014-04-26 00:00:00', '2014-04-26 00:00:00', 'Grégory Paul', 'Bitcoin et monnaies cryptographiques',3);
+INSERT INTO `Talk` (`id`, `creation_time`, `modification_time`, `speakerName`, `title`, `conference_id`) VALUES (5, '2014-04-26 00:00:00', '2014-04-26 00:00:00', 'José Paumard', "50 nouvelles choses que l'on peut faire avec Java 8",3);

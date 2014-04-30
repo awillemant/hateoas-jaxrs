@@ -1,6 +1,7 @@
 package com.wsolutions.hateoas.entity;
 
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +15,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
+
 import org.jboss.resteasy.links.RESTServiceDiscovery;
 
 @MappedSuperclass
@@ -35,35 +37,29 @@ public class GenericEntity {
 
 	@XmlElement
 	@Transient
-	private RESTServiceDiscovery rest;
-
+	private RESTServiceDiscovery link;
 
 	@XmlID
 	public String getIdString() {
 		return Long.toString(id);
 	}
 
-
 	public long getId() {
 		return id;
 	}
-
 
 	public Date getCreationTime() {
 		return creationTime;
 	}
 
-
 	public Date getModificationTime() {
 		return modificationTime;
 	}
-
 
 	@PreUpdate
 	public void preUpdate() {
 		modificationTime = new Date();
 	}
-
 
 	@PrePersist
 	public void prePersist() {
@@ -72,8 +68,7 @@ public class GenericEntity {
 		modificationTime = now;
 	}
 
-
-	public RESTServiceDiscovery getRest() {
-		return rest;
+	public RESTServiceDiscovery getLink() {
+		return link;
 	}
 }

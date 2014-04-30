@@ -3,6 +3,7 @@ package com.wsolutions.hateoas.entity;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -26,44 +27,40 @@ public class Conference extends GenericEntity {
 	@OneToMany(mappedBy = "conference", cascade = CascadeType.ALL)
 	private List<Talk> talks;
 
-
 	public Conference() {
 		super();
 		talks = new ArrayList<Talk>();
 	}
 
-
 	public String getName() {
 		return name;
 	}
-
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-
 	public Date getStartDate() {
 		return startDate;
 	}
-
 
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
 
-
 	public Date getEndDate() {
 		return endDate;
 	}
-
 
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
 
-
 	public List<Talk> getTalks() {
 		return talks;
+	}
+
+	public boolean isPast() {
+		return endDate.before(new Date());
 	}
 }
