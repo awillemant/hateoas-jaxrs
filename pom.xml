@@ -26,5 +26,6 @@
 	
 	<modules>
 		<module>hateoas-webservice</module>
+		<module>hateoas-front</module>
 	</modules>
 </project>
