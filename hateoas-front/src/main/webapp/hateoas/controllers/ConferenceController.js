@@ -1,13 +1,13 @@
 define([ 'modules/hateoasModule',  'resources/Conference' ], function(hateoasModule) {
 
-	hateoasModule.controller('ConferenceController', function($scope,  $log, Conference) {
+	hateoasModule.controller('ConferenceController', function($scope,  $log, Conference, LinkUtils) {
 
 		$scope.conferences = [];
 
 		var refreshConferences = function() {
 			$log.debug("Rafraichissement de la liste des conferences");
-			$scope.futureConferences = Conference.query().$promise;
-			$scope.futureConferences.then(function(data) {
+			var futureConferences = Conference.query().$promise;
+			futureConferences.then(function(data) {
 				
 				$scope.conferences = data;
 				$log.debug($scope.conferences);
@@ -16,6 +16,13 @@ define([ 'modules/hateoasModule',  'resources/Conference' ], function(hateoasMod
 		
 
 		refreshConferences();
+		
+		
+		$scope.canSubscribe = function(conference){
+			//return new Date()<new Date(conference.endDate);
+			return LinkUtils.getIndexForRel(conference,"subscribe") != -1;
+		};
+		
 
 	});
 
