@@ -4,5 +4,13 @@ body {
 
 .starter-template {
 	padding: 40px 15px;
-	text-align: center;
+}
+
+td ul{
+	list-style-type:none;
+	padding-left:0;
+}
+
+td ul li small{
+	color:#999;
 }

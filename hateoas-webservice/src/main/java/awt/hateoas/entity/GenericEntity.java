@@ -7,9 +7,7 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlID;
 import org.jboss.resteasy.links.RESTServiceDiscovery;
 
 @MappedSuperclass
@@ -18,18 +16,12 @@ public class GenericEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@XmlAttribute
+	@XmlElement
 	private long id;
 
 	@XmlElement
 	@Transient
 	private RESTServiceDiscovery links;
-
-
-	@XmlID
-	public String getIdString() {
-		return Long.toString(id);
-	}
 
 
 	public long getId() {

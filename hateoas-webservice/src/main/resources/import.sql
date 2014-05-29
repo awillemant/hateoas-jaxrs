@@ -5,7 +5,7 @@ INSERT INTO `Conference` (`id`,  `name`, `startDate`, `endDate`) VALUES (3, "Dev
 INSERT INTO `Talk` (`id`,  `speakerName`, `title`, `conference_id`) VALUES (1, "Jakob Mattsson", "You are not service oriented enough!", 1);
 INSERT INTO `Talk` (`id`,  `speakerName`, `title`, `conference_id`) VALUES (2, "Olivier Lacan", "Science-based development", 1);
 INSERT INTO `Talk` (`id`,  `speakerName`, `title`, `conference_id`) VALUES (3, "Xavier Coulon", "Build your website with awestruct and publish it on the cloud with Git", 1);
-INSERT INTO `Talk` (`id`,  `speakerName`, `title`, `conference_id`) VALUES (4, "Rémi Parmentier", "Design for developers", 1);
+INSERT INTO `Talk` (`id`,  `speakerName`, `title`, `conference_id`) VALUES (4, "Remi Parmentier", "Design for developers", 1);
 
 INSERT INTO `Talk` (`id`,  `speakerName`, `title`, `conference_id`) VALUES (5, "Luca Sale", "The bizarre app experiment", 2);
 INSERT INTO `Talk` (`id`,  `speakerName`, `title`, `conference_id`) VALUES (6, "Paul Rouget", "Understanding a layout engine: parallelism and hardware acceleration", 2);
