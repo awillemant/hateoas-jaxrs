@@ -1,7 +1,7 @@
-package com.wsolutions.hateoas.service;
+package awt.hateoas.service;
 
 import java.util.List;
-import com.wsolutions.hateoas.entity.Talk;
+import awt.hateoas.entity.Talk;
 
 public interface TalkService {
 

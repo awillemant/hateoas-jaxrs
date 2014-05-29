@@ -1,7 +1,6 @@
-package com.wsolutions.hateoas.filter;
+package awt.hateoas.filter;
 
 import java.io.IOException;
-
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -14,26 +13,20 @@ public class NoCacheFilter implements Filter {
 
 	@Override
 	public void destroy() {
-		
-
 	}
 
+
 	@Override
-	public void doFilter(ServletRequest req, ServletResponse resp,	FilterChain chain) throws IOException, ServletException {
-		
-		
+	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
 		HttpServletResponse response = (HttpServletResponse) resp;
-		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
-		response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
-		response.setDateHeader("Expires", 0); // Proxies.
-		
+		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+		response.setHeader("Pragma", "no-cache");
+		response.setDateHeader("Expires", 0);
 		chain.doFilter(req, resp);
 	}
 
+
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
-		
-
 	}
-
 }

@@ -1,8 +1,8 @@
-package com.wsolutions.hateoas.controller;
+package awt.hateoas.controller;
 
 import java.util.List;
-
-import javax.annotation.Resource;
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -12,21 +12,19 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
 import org.jboss.resteasy.links.AddLinks;
 import org.jboss.resteasy.links.LinkResource;
-import org.springframework.stereotype.Controller;
+import awt.hateoas.entity.Talk;
+import awt.hateoas.service.TalkService;
 
-import com.wsolutions.hateoas.entity.Talk;
-import com.wsolutions.hateoas.service.TalkService;
-
-@Controller
+@Named
 @Produces(MediaType.APPLICATION_JSON)
 @Path("/rs/talks")
 public class TalkController extends AbstractController {
 
-	@Resource
+	@Inject
 	private TalkService talkService;
+
 
 	@GET
 	@Path("/")
@@ -36,6 +34,7 @@ public class TalkController extends AbstractController {
 		return talkService.getAll();
 	}
 
+
 	@GET
 	@Path("/{id}")
 	@LinkResource()
@@ -44,11 +43,13 @@ public class TalkController extends AbstractController {
 		return talkService.getOneById(id);
 	}
 
+
 	@POST
 	@Path("/")
 	public Response post() {
 		return notImplemented();
 	}
+
 
 	@PUT
 	@Path("/")
@@ -56,10 +57,10 @@ public class TalkController extends AbstractController {
 		return notImplemented();
 	}
 
+
 	@DELETE
 	@Path("/")
 	public Response delete() {
 		return notImplemented();
 	}
-
 }

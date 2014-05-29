@@ -1,7 +1,7 @@
-package com.wsolutions.hateoas.service;
+package awt.hateoas.service;
 
 import java.util.List;
-import com.wsolutions.hateoas.entity.Conference;
+import awt.hateoas.entity.Conference;
 
 public interface ConferenceService {
 

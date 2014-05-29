@@ -1,18 +1,18 @@
-package com.wsolutions.hateoas.service.impl;
+package awt.hateoas.service.impl;
 
 import java.util.List;
-import javax.annotation.Resource;
-import org.springframework.stereotype.Service;
+import javax.inject.Inject;
+import javax.inject.Named;
 import org.springframework.transaction.annotation.Transactional;
-import com.wsolutions.hateoas.dao.ConferenceDAO;
-import com.wsolutions.hateoas.entity.Conference;
-import com.wsolutions.hateoas.service.ConferenceService;
+import awt.hateoas.dao.ConferenceDAO;
+import awt.hateoas.entity.Conference;
+import awt.hateoas.service.ConferenceService;
 
-@Service
+@Named
 @Transactional
 public class ConferenceServiceImpl implements ConferenceService {
 
-	@Resource
+	@Inject
 	private ConferenceDAO conferenceDAO;
 
 

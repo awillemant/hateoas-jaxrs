@@ -1,18 +1,18 @@
-package com.wsolutions.hateoas.service.impl;
+package awt.hateoas.service.impl;
 
 import java.util.List;
-import javax.annotation.Resource;
-import org.springframework.stereotype.Service;
+import javax.inject.Inject;
+import javax.inject.Named;
 import org.springframework.transaction.annotation.Transactional;
-import com.wsolutions.hateoas.dao.TalkDAO;
-import com.wsolutions.hateoas.entity.Talk;
-import com.wsolutions.hateoas.service.TalkService;
+import awt.hateoas.dao.TalkDAO;
+import awt.hateoas.entity.Talk;
+import awt.hateoas.service.TalkService;
 
-@Service
+@Named
 @Transactional
 public class TalkServiceImpl implements TalkService {
 
-	@Resource
+	@Inject
 	private TalkDAO talkDAO;
 
 

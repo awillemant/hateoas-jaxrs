@@ -1,4 +1,4 @@
-package com.wsolutions.hateoas.entity;
+package awt.hateoas.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;

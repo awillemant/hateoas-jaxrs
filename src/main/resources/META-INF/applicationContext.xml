@@ -20,9 +20,11 @@
            http://www.springframework.org/schema/data/jpa/spring-jpa-1.0.xsd"
 	default-lazy-init="true">
 
-	<!-- context:annotation-config / -->
-	<context:component-scan base-package="com.wsolutions.hateoas.service" />
-	<context:component-scan base-package="com.wsolutions.hateoas.controller" />
+	
+	<context:component-scan base-package="awt.hateoas.service" />
+	<context:component-scan base-package="awt.hateoas.controller" />
+	
+	<jpa:repositories base-package="awt.hateoas.dao"/>
 
 	<bean id="JDBCPropertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location" value="classpath:jdbc.properties" />
@@ -31,7 +33,10 @@
 	
 	
 	<tx:annotation-driven transaction-manager="transactionManager" />
-
+	
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
 
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="${jdbc.dataSource.driver}" />
@@ -45,17 +50,11 @@
 		<property name="maxStatements" value="${jdbc.dataSource.maxStatements}" />
 	</bean>
 	
-	<!-- JPA config -->
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="persistenceUnitName" value="emf" />
-		<property name="packagesToScan">
-			<list>
-				<value>com.wsolutions.hateoas.entity</value>
-			</list>
-		</property>
-
+		<property name="packagesToScan" value="awt.hateoas.entity" />
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 				<property name="generateDdl" value="${jpa.generateDdl}" />
@@ -70,7 +69,6 @@
 				<prop key="hibernate.archive.autodetection">class</prop>
 				<prop key="hibernate.generate_statistics">true</prop>
 				<prop key="hibernate.cache.use_second_level_cache">true</prop>
-				<!-- <prop key="hibernate.cache.provider_class">net.sf.ehcache.hibernate.EhCacheProvider</prop> -->
 				<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory</prop>
 				<prop key="hibernate.cache.use_query_cache">true</prop>
 				<prop key="hibernate.hbm2ddl.auto">create</prop>
@@ -80,11 +78,9 @@
 
 	</bean>
 	
-	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-		<property name="entityManagerFactory" ref="entityManagerFactory" />
-	</bean>
 	
-	<jpa:repositories base-package="com.wsolutions.hateoas.dao"/>
+	
+	
 
 
 	
