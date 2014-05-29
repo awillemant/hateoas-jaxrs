@@ -1,16 +1,13 @@
-define([ 'modules/hateoasModule'], function(mainApp) {
+define([ 'modules/hateoasModule', 'controllers/ConferenceController'], function(mainApp) {
 
 	return mainApp.config(function($routeProvider) {
 
 		$routeProvider.when('/', {
-			controller : 'ApplicationController',
-			templateUrl : 'appnotifier/templates/Applications.html'
+			controller : 'ConferenceController',
+			templateUrl : 'hateoas/templates/conferences.html'
 		});
 
-		$routeProvider.when('/notifications/:appUID', {
-			controller : 'NotificationController',
-			templateUrl : 'appnotifier/templates/Notifications.html'
-		});
+		
 
 	});
 
